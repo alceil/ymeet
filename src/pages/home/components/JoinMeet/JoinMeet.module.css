@@ -1,0 +1,63 @@
+
+.SignUpBox{
+    display: flex;
+    flex-direction: column;
+    background-color: #ffff;
+    padding: 40px;
+    box-shadow:0px 0px 30px 1px #c2c2c2
+}
+
+.emailInput {
+    margin-bottom:1rem ;
+    width: 200px;
+    background-color: #fff;
+    color: #242424;
+    padding: .15rem .5rem;
+    min-height: 40px;
+    border-radius: 4px;
+    outline: none;
+    border: 1.5px solid lightgrey;
+    line-height: 1.15;
+    box-shadow: 0px 10px 20px -18px;
+  }
+  
+  .emailInput:focus {
+    border: 2px solid #5b5fc7;
+    border-radius: 4px 4px 2px 2px;
+    
+  }
+
+  .emailInput::placeholder {
+color: grey;  
+font-weight: 500;  
+}
+  
+  .emailInput:hover:not(:focus) {
+    outline: 1px solid black;
+  }
+
+  .click {
+    display: flex;
+    background-color: #4527a0;
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: center;
+    border-radius: .25rem;
+    text-align: right;
+  }
+  
+  .click {
+    transition: background .8s ease-out;
+    background: #4527a0 radial-gradient(circle, transparent 1%, #7A5FFF 1%) center/15000%;
+  }
+  
+  .click:active {
+    background-color: #c1b4ff;
+    background-size: 100%;
+    transition: background 0s;
+  }
+    
