@@ -1,8 +1,11 @@
 import React from 'react'
-
+import style from './styles/ChatHeader.module.css'
 const ChatHeader = () => {
   return (
-    <div>ChatHeader</div>
+
+    <div className={style.chatheader_container}>
+        <h2 style={{color:'white',fontWeight:'bold'}}>Messages</h2>
+    </div>
   )
 }
 
