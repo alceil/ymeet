@@ -31,7 +31,9 @@ const Home = () => {
 <button style={{
   display:'flex',
   alignItems:'center',
-  marginRight:10,
+
+  marginTop:'11rem',
+  marginRight:20,
 borderRadius:50,
 padding:15,
 border:'none',
