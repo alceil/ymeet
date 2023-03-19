@@ -48,4 +48,10 @@
   .card_right{
     display: flex;
     flex-direction: column;
+    margin-left: 5px;
+  }
+
+  .meeting_name{
+    color:grey;
+    font-weight:bold
   }
