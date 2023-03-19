@@ -14,7 +14,7 @@
 
 .chatimg_container{
     display: flex;
-    margin-right: 20rem;
+    margin-right: 10rem;
     flex-direction: column;
     align-items: center;
     justify-content: center;

@@ -1,6 +1,6 @@
 .search_input {
     margin-bottom:1rem ;
-    max-width: 190px;
+    width: 250px;
     background-color: #fff;
     color: #242424;
     padding: .15rem .5rem;
