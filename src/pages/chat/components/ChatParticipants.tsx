@@ -16,7 +16,9 @@ const ChatParticipants = () => {
 <div className={style.avatar}>
     I
     </div> 
- 
+    <div className={style.card_right}>
+      <p>i6fl-k5cd-gvom</p>
+    </div>     
 </div>
   
 </div>

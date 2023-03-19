@@ -42,6 +42,7 @@
 
   .list_card{
     display: flex; 
+    align-items: center;
   }
 
   .card_right{
