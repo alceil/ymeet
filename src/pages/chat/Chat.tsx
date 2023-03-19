@@ -9,8 +9,9 @@ const Chat = () => {
 <Header/>
 <div className={style.chat_container}>
 <ChatHeader/>
-<div>
+<div className={style.chat_bottom}>
 <ChatParticipants/>
+<div className={style.chatimg_container}>
 <img
                     alt="Start new chat"
                     width={180}
@@ -19,6 +20,9 @@ const Chat = () => {
                       "https://www.gstatic.com/meet/user_edu_get_a_link_light_90698cd7b4ca04d3005c962a3756c42d.svg"
                     }
                   />
+<h5>Select someone to chat</h5>
+
+</div>
 </div>
 </div>
 </>
