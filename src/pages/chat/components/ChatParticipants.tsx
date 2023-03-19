@@ -19,7 +19,7 @@ const ChatParticipants = () => {
     <div className={style.card_right}>
 <div style={{display:'flex',justifyContent:'space-between'}}>
 <div className={style.meeting_name}>i6fl-k5cd-gvom</div>
-<div style={{marginLeft:'10px',color:'rgba(0, 0, 0, 0.54)',fontWeight:'bold'}}>10:20 pm</div>
+<div style={{marginLeft:'20px',color:'rgba(0, 0, 0, 0.54)',fontWeight:'bold'}}>10:20 pm</div>
 </div>
       <div className={style.chat_msg}>asasada</div>
     </div>     
