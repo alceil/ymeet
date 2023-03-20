@@ -1,8 +1,14 @@
 import React from 'react'
-
+import Header from '../../../components/Header/Header'
+import style from './WaitRoom.module.css'
 const WaitRoom = () => {
   return (
-    <div>WaitRoom</div>
+<>
+<Header/>
+<div className={style.waitroom_middle}>
+
+</div>
+</>
   )
 }
 
