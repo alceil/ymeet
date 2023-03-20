@@ -1,0 +1,9 @@
+.joinmeet_title{
+font-size: 25px;
+}
+
+.joinmeet_right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
