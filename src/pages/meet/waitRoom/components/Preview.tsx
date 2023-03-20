@@ -1,8 +1,9 @@
 import React from 'react'
-
+import style from './styles/Preview.module.css'
 const Preview = () => {
   return (
-    <div>Preview</div>
+    <div className={style.video_box}>
+    </div>
   )
 }
 
