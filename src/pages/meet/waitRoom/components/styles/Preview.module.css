@@ -9,9 +9,11 @@
 .vc_options{
     position: relative;
     top:18rem;
+    left: 15rem;
+    display: flex;
     background-color: #dddbdba7;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 96px;
     height: 48px;
     border-radius: 4px;

@@ -6,8 +6,8 @@ const Preview = () => {
   return (
     <div className={style.video_box}>
       <div className={style.vc_options}>
-       <IoMdMic/> 
-       <MdOutlineVideocam/>
+       <IoMdMic size={20} style={{color:'rgba(0, 0, 0, 0.54)'}}/> 
+       <MdOutlineVideocam size={20} style={{color:'rgba(0, 0, 0, 0.54)'}}/>
 
       </div>
     </div>
