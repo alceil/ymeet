@@ -1,5 +1,10 @@
 .meet_container{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
+.vc_controllers{
+    display: flex;
+    justify-content: space-between;
+}
