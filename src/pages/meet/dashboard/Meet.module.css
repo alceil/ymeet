@@ -10,3 +10,12 @@
     justify-content: space-between;
     width: 98%;
 }
+
+.meeting_card{
+    height: 84%;
+    padding: 16px;
+    max-width: 350px;
+    min-width: 350px;
+    box-shadow: 0px 0px 30px 1px #c2c2c2;
+    border-radius: 8px;
+}
