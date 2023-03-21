@@ -1,11 +1,11 @@
 import React from 'react'
+import Video from './components/Video';
 import style from './Meet.module.css';
 
 const Meet = () => {
   return (
     <div className={style.meet_container}>
-   <div className={style.video_box}>
-   </div>
+<Video/>
     </div>
   )
 }
