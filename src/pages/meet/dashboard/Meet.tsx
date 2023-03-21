@@ -1,5 +1,6 @@
 import React from 'react'
 import Controller from './components/Controller';
+import SidePanel from './components/SidePanel';
 import Video from './components/Video';
 import style from './Meet.module.css';
 
@@ -12,6 +13,7 @@ const Meet = () => {
   2:45pm | i6fl-k5cd-gvom
 </h2>
 <Controller/>
+<SidePanel/>
 </div>
     </div>
   )
