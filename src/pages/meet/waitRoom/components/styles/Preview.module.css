@@ -5,3 +5,14 @@
     background-color: orange;
     box-shadow:0px 0px 30px 1px #c2c2c2
 }
+
+.vc_options{
+    position: relative;
+    top:18rem;
+    background-color: #dddbdba7;
+    align-items: center;
+    justify-content: space-between;
+    width: 96px;
+    height: 48px;
+    border-radius: 4px;
+}
