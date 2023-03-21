@@ -10,11 +10,11 @@ import { BsChatLeftText } from "react-icons/bs";
 const SidePanel = () => {
   return (
     <div className={style.sidepanel_container}>
-<MdInfoOutline/>
-<MdOutlinePeopleOutline/>
-<BsChatLeftText/>
-<MdOutlineAssessment/>
-<MdLockOpen/>
+<MdInfoOutline size={24}/>
+<MdOutlinePeopleOutline size={24}/>
+<BsChatLeftText size={24}/>
+<MdOutlineAssessment size={24}/>
+<MdLockOpen size={24}/>
     </div>
   )
 }

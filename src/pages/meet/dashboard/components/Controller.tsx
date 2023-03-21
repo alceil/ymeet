@@ -12,13 +12,15 @@ import {
 const Controller = () => {
   return (
     <div className={style.controller_container}>
-        <IoMdMic/>
-        <MdOutlineVideocam/>
-        <MdPresentToAll/>
-        <MdCallEnd/>
-        <MdOutlineBrush/>
-        <MdBrightness4/>
-        <MdOutlinePanTool/>
+        <IoMdMic size={24}/>
+        <MdOutlineVideocam  size={24}/>
+        <MdPresentToAll size={24}/>
+        <button  className={style.callend_btn}>
+        <MdCallEnd size={24}/>
+        </button>
+        <MdOutlineBrush size={24}/>
+        <MdBrightness4 size={24}/>
+        <MdOutlinePanTool size={24}/>
     </div>
   )
 }

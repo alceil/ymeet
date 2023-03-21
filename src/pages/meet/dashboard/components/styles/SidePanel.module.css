@@ -1,4 +1,6 @@
 .sidepanel_container{
     display: flex;
     justify-content: space-between;
+    width: 15%;
+    color:#0000008A
 }
