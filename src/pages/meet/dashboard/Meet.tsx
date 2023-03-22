@@ -5,13 +5,12 @@ import Video from './components/Video';
 import style from './Meet.module.css';
 import { MdClose,MdOutlineFileCopy} from 'react-icons/md'
 const Meet = () => {
-  const [isOpen,setIsOpen] = useState(true);
+  const [isOpen,setIsOpen] = useState(false);
   return (
     <div className={style.meet_container}>
       <div style={{display:'flex'}}>
       <Video/>
-{isOpen?(
-  <div className={style.meeting_card}>
+  <div className={`${style.meeting_card} ${isOpen?`${style.transition}`:` `}`}>
   <div className={style.meeting_card_top}>
   <h3>Meeting Details</h3>
   <MdClose size={20} style={{color:'#0000008A'}}/>
@@ -27,10 +26,10 @@ const Meet = () => {
     </button>
   </div>
 </div>
-):null}
+
       </div>
 <div className={style.vc_controllers}>
-<h2 style={{color:'#0000008A',fontWeight:'bold'}}>
+<h2 style={{color:'#0000008A',fontWeight:'bold'}} onClick={()=>setIsOpen(!isOpen)}>
   2:45pm | i6fl-k5cd-gvom
 </h2>
 <Controller/>
