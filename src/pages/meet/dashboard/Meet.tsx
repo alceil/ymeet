@@ -9,7 +9,7 @@ const Meet = () => {
   return (
     <div className={style.meet_container}>
       <div style={{display:'flex'}}>
-      <Video/>
+      <Video open={isOpen}/>
   <div className={`${style.meeting_card} ${isOpen?`${style.transition}`:` `}`}>
   <div className={style.meeting_card_top}>
   <h3>Meeting Details</h3>
