@@ -12,10 +12,42 @@
 }
 
 .meeting_card{
-    height: 84%;
+    position: relative;
+    left: 100px;
+    margin: 10px;
+
     padding: 16px;
+    /* animation-name: example;
+    animation-duration: 4s; */
     max-width: 350px;
     min-width: 350px;
+
     box-shadow: 0px 0px 30px 1px #c2c2c2;
     border-radius: 8px;
+}
+
+.transition{
+    transition: all 4s ease-in-out;
+    transform: translate(-200px);
+}
+@keyframes example {
+    from {  left: 100px;}
+    to {  left: 0px;}
+  }
+
+
+
+.meeting_card_top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.joincard_btn{
+    display: flex;
+    align-items: center;
+    border: none;
+    margin: 10px auto;
+    background-color: #ffff;
+    color:#4527a0;
 }

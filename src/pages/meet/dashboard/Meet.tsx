@@ -1,17 +1,33 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Controller from './components/Controller';
 import SidePanel from './components/SidePanel';
 import Video from './components/Video';
 import style from './Meet.module.css';
-
+import { MdClose,MdOutlineFileCopy} from 'react-icons/md'
 const Meet = () => {
+  const [isOpen,setIsOpen] = useState(true);
   return (
     <div className={style.meet_container}>
       <div style={{display:'flex'}}>
       <Video/>
-<div className={style.meeting_card}>
-<h6>Meet</h6>
+{isOpen?(
+  <div className={style.meeting_card}>
+  <div className={style.meeting_card_top}>
+  <h3>Meeting Details</h3>
+  <MdClose size={20} style={{color:'#0000008A'}}/>
+  </div>
+  <div>
+    <p>Joining info</p>
+    <span style={{color:'#0000008A'}}>
+    https://trio-calls.vercel.app/i6fl-k5cd-gvom
+    </span>
+    <button className={style.joincard_btn}>
+    <MdOutlineFileCopy size={20}/>
+<span style={{marginLeft:'10px'}}>Copy joining info</span>
+    </button>
+  </div>
 </div>
+):null}
       </div>
 <div className={style.vc_controllers}>
 <h2 style={{color:'#0000008A',fontWeight:'bold'}}>
