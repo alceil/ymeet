@@ -11,7 +11,7 @@ const Meet = () => {
       <div style={{display:'flex'}}>
       <Video open={open}/>
       </div>
-<SidePanel open={open} setOpen={setOpen}/>
+<SidePanel  open={open} setOpen={setOpen}/>
 <Controller/>
 <LeftBar/>
     </div>

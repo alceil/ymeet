@@ -1,4 +1,4 @@
-import style from './styles/SidePanel.module.css'
+import style from '../styles/SidePanel.module.css'
 import { MdClose,MdOutlineFileCopy} from 'react-icons/md'
 
 import {
