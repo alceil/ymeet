@@ -29,7 +29,7 @@ const SidePanel:React.FC< {open: boolean;setOpen: React.Dispatch<React.SetStateA
   </div>
 </div>
 <div className={style.sidepanelicon_container}>
-<MdInfoOutline size={24}/>
+<MdInfoOutline size={24} onClick={() => setOpen(!open)}/>
 <MdOutlinePeopleOutline size={24}/>
 <BsChatLeftText size={24}/>
 <MdOutlineAssessment size={24}/>
