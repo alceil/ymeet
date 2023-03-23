@@ -6,16 +6,15 @@ import {
     MdInfoOutline,
     MdOutlinePeopleOutline,
     MdOutlineAssessment,
-    MdLockOpen,
-    MdOutlineGetApp,
-    MdPerson
+    MdLockOpen
 } from 'react-icons/md'
 
 import { BsChatLeftText } from "react-icons/bs";
 import MeetInfo from './Info';
+import Participants from './Participants';
 const SidePanel:React.FC< {open: boolean;setOpen: React.Dispatch<React.SetStateAction<boolean>>;}> =
  ({ open, setOpen }) => {
-    const [index, setIndex] = useState(1);
+    const [index, setIndex] = useState(2);
   return (
     <div className={style.sidepanel_container}>
       <div className={`${style.meeting_card} ${open?`${style.transition}`:` `}`}>
@@ -25,8 +24,13 @@ const SidePanel:React.FC< {open: boolean;setOpen: React.Dispatch<React.SetStateA
   </h3>
   <MdClose size={20} style={{color:'#0000008A'}}/>
   </div>
+<div style={{display:'flex',flexDirection:'column'}}>
+<div style={{display:'flex',justifyContent:'space-between',color:'#4527a0'}}>
+<h5>ilforam (You)</h5>
+<h5>10:19 pm</h5>
+</div>
 
-  
+  {/* <Participants/> */}
 {/* <MeetInfo/> */}
 </div>
 <div className={style.sidepanelicon_container}>

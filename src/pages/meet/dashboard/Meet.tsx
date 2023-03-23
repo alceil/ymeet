@@ -5,7 +5,7 @@ import SidePanel from './components/SidePanel';
 import Video from './components/Video';
 import style from './Meet.module.css';
 const Meet = () => {
-  const [open,setOpen] = useState(false);
+  const [open,setOpen] = useState(true);
   return (
     <div className={style.meet_container}>
       <div style={{display:'flex'}}>
