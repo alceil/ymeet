@@ -1,22 +1,35 @@
 .sidepanel_container{
+    position: absolute;
+    right:10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 88vh;
+}
+
+
+.sidepanelicon_container{
+    position: absolute;
+    bottom: -34px;
+    right:10px;
     display: flex;
     justify-content: space-between;
-    width: 15%;
+    width: 50%;
     color:#0000008A
 }
 
 .meeting_card{
-    position: relative;
-    left: 100px;
+    /* position: relative;
+    left: 100px; */
     margin: 10px;
-
+height: 84%;
     padding: 16px;
     /* animation-name: example;
     animation-duration: 4s; */
     max-width: 350px;
     min-width: 350px;
-    transition: all .1s linear;
-    transform: translate(500px);
+    /* transition: all .1s linear;
+    transform: translate(500px); */
     box-shadow: 0px 0px 30px 1px #c2c2c2;
     border-radius: 8px;
 }
@@ -25,12 +38,6 @@
 
     transform: translate(-20px);
 }
-/* @keyframes example {
-    from {  left: 100px;}
-    to {  left: 0px;}
-  } */
-
-
 
 .meeting_card_top{
     display: flex;

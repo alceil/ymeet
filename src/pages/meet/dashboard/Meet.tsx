@@ -13,13 +13,15 @@ const Meet = () => {
 
       </div>
 <div className={style.vc_controllers}>
+
+</div>
+
+<SidePanel open={isOpen} setOpen={setIsOpen}/>
+
+<Controller/>
 <h2 style={{color:'#0000008A',fontWeight:'bold'}} onClick={()=>setIsOpen(!isOpen)}>
   2:45pm | i6fl-k5cd-gvom
 </h2>
-<Controller/>
-</div>
-<SidePanel open={isOpen} setOpen={setIsOpen}/>
-
     </div>
   )
 }

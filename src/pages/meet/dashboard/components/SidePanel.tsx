@@ -8,12 +8,10 @@ import {
     MdLockOpen
 } from 'react-icons/md'
 import { BsChatLeftText } from "react-icons/bs";
-const SidePanel:React.FC< {
-  open: boolean;
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}> = ({ open, setOpen }) => {
+const SidePanel:React.FC< {open: boolean;setOpen: React.Dispatch<React.SetStateAction<boolean>>;}> =
+ ({ open, setOpen }) => {
   return (
-    <div>
+    <div className={style.sidepanel_container}>
       <div className={`${style.meeting_card} ${open?`${style.transition}`:` `}`}>
   <div className={style.meeting_card_top}>
   <h3>Meeting Details</h3>
@@ -30,7 +28,7 @@ const SidePanel:React.FC< {
     </button>
   </div>
 </div>
-<div className={style.sidepanel_container}>
+<div className={style.sidepanelicon_container}>
 <MdInfoOutline size={24}/>
 <MdOutlinePeopleOutline size={24}/>
 <BsChatLeftText size={24}/>

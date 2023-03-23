@@ -2,7 +2,7 @@
     height: 480px;
     width: 800px;
     border-radius: 10px;
-    transform: translate(200px);
+    /* transform: translate(200px); */
     background-color: orange;
     transition: all .1s linear;
     margin: 5rem;
