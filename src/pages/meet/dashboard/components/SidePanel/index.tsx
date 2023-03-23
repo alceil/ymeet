@@ -24,11 +24,6 @@ const SidePanel:React.FC< {open: boolean;setOpen: React.Dispatch<React.SetStateA
   </h3>
   <MdClose size={20} style={{color:'#0000008A'}}/>
   </div>
-<div style={{display:'flex',flexDirection:'column'}}>
-<div style={{display:'flex',justifyContent:'space-between',color:'#4527a0'}}>
-<h5>ilforam (You)</h5>
-<h5>10:19 pm</h5>
-</div>
 
   {/* <Participants/> */}
 {/* <MeetInfo/> */}
