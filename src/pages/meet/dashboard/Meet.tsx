@@ -10,15 +10,8 @@ const Meet = () => {
     <div className={style.meet_container}>
       <div style={{display:'flex'}}>
       <Video open={open}/>
-  
-
       </div>
-<div className={style.vc_controllers}>
-
-</div>
-
 <SidePanel open={open} setOpen={setOpen}/>
-
 <Controller/>
 <LeftBar/>
     </div>

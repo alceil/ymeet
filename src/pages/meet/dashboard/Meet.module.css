@@ -2,14 +2,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width:200vh;
+    overflow-x: hidden;
+
 }
 
-.vc_controllers{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 98%;
-}
 
 
 
