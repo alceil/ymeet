@@ -19,7 +19,7 @@ const Meet = () => {
 <SidePanel open={isOpen} setOpen={setIsOpen}/>
 
 <Controller/>
-<h2 style={{color:'#0000008A',fontWeight:'bold'}} onClick={()=>setIsOpen(!isOpen)}>
+<h2 style={{position:'absolute',bottom:'24px',left:'10px',color:'#0000008A',fontWeight:'bold'}} onClick={()=>setIsOpen(!isOpen)}>
   2:45pm | i6fl-k5cd-gvom
 </h2>
     </div>
