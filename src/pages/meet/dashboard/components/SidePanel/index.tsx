@@ -1,32 +1,33 @@
 import style from '../styles/SidePanel.module.css'
-import { MdClose,MdOutlineFileCopy} from 'react-icons/md'
+import React,{useState} from 'react'
+import { MdClose} from 'react-icons/md'
 
 import {
     MdInfoOutline,
     MdOutlinePeopleOutline,
     MdOutlineAssessment,
-    MdLockOpen
+    MdLockOpen,
+    MdOutlineGetApp,
+    MdPerson
 } from 'react-icons/md'
+
 import { BsChatLeftText } from "react-icons/bs";
+import MeetInfo from './Info';
 const SidePanel:React.FC< {open: boolean;setOpen: React.Dispatch<React.SetStateAction<boolean>>;}> =
  ({ open, setOpen }) => {
+    const [index, setIndex] = useState(1);
   return (
     <div className={style.sidepanel_container}>
       <div className={`${style.meeting_card} ${open?`${style.transition}`:` `}`}>
   <div className={style.meeting_card_top}>
-  <h3>Meeting Details</h3>
+  <h3>
+  {["Meeting Details", "People", "In-call messages", "Polls"][index]}
+  </h3>
   <MdClose size={20} style={{color:'#0000008A'}}/>
   </div>
-  <div>
-    <p>Joining info</p>
-    <span style={{color:'#0000008A'}}>
-    https://trio-calls.vercel.app/i6fl-k5cd-gvom
-    </span>
-    <button className={style.joincard_btn}>
-    <MdOutlineFileCopy size={20}/>
-<span style={{marginLeft:'10px'}}>Copy joining info</span>
-    </button>
-  </div>
+
+  
+{/* <MeetInfo/> */}
 </div>
 <div className={style.sidepanelicon_container}>
 <MdInfoOutline size={24} onClick={() => setOpen(!open)}/>
