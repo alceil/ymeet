@@ -5,8 +5,10 @@ import {MdOutlineLockOpen} from 'react-icons/md'
 import {BsPerson} from 'react-icons/bs'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from "../../../core/hooks/redux";
+import { updateAuth } from "../../../core/reducers/auth";
 import { useSnackbar } from "notistack";
 import { useLocalStorage } from "../../../core/hooks/common";
+import { signUp } from "../../../utils/auth.fetch";
 const INITIAL_STATE = { text: "", error: "" };
 export const emailRegex =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
