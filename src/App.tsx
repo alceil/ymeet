@@ -1,4 +1,3 @@
-import Routers from './pages';
 import loadable from '@loadable/component'
 import { LinearProgress } from '@mui/material';
 export const Routes = loadable(() => import('./pages'), {
