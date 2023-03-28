@@ -1,15 +1,12 @@
-import React from 'react';
 import Routers from './pages';
-import SignUp from './pages/auth/SignUp/SignUp';
-import Chat from './pages/chat/Chat';
-import Home from './pages/home/Home';
-import Meet from './pages/meet/dashboard/Meet';
-import WaitRoom from './pages/meet/waitRoom/WaitRoom';
-
+import loadable from '@loadable/component'
+import { LinearProgress } from '@mui/material';
+export const Routes = loadable(() => import('./pages'), {
+  fallback: <LinearProgress />,
+});
 function App() {
   return (
-<Routers/>
-
+<Routes/>
 );
 }
 
