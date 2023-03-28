@@ -3,6 +3,7 @@ import style from './SignUp.module.css'
 import {HiOutlineMail} from 'react-icons/hi'
 import {MdOutlineLockOpen} from 'react-icons/md'
 import {BsPerson} from 'react-icons/bs'
+import { Link } from 'react-router-dom'
 
 type Props = {}
 
@@ -36,7 +37,10 @@ const SignUp = (props: Props) => {
   type="password"/>
 </div>
 <button className={style.click}>Register Now</button>
+<Link to='/auth/signIn'  style={{color: 'inherit', textDecoration: 'inherit'}}>
 <p>Already have an account?Sign in</p>
+
+</Link>
       </div>
     </div>
   )

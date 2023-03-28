@@ -2,6 +2,7 @@ import React from 'react'
 import style from './SignIn.module.css'
 import {HiOutlineMail} from 'react-icons/hi'
 import {MdOutlineLockOpen} from 'react-icons/md'
+import { Link } from 'react-router-dom'
 const SignIn: React.FC = () => {
   return (
     <div className={style.Container}>
@@ -25,7 +26,12 @@ const SignIn: React.FC = () => {
   type="password"/>
 </div>
 <button className={style.click}>Login</button>
+
+<Link to='/auth/signUp'  style={{color: 'inherit', textDecoration: 'inherit'}}>
 <p>Create new account</p>
+
+</Link>
+
       </div>
     </div>
   )
