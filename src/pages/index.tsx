@@ -1,12 +1,33 @@
 
-import { Route, Routes } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Route, Routes,  RouteProps, useNavigate, } from 'react-router-dom';
+import { useAppSelector } from '../core/hooks/redux';
+import { useConnection } from '../core/hooks/useConnection';
 import Auth from './auth';
 import Chat from './chat/Chat';
 import Home from './home/Home';
 const Routers = () => {
+
+  // <Route path="/" element={isAuth?<Home/>: <Navigate to="/auth/signIn" />} />
+
+  const RequireAuth:React.FC<{element:JSX.Element}> = ({element}) => {
+    useConnection();
+  const { isAuth } = useAppSelector(({ authReducer }) => authReducer);
+
+    const navigate = useNavigate();
+    useEffect(() => {
+      if (!isAuth) {
+        navigate("/auth/signIn")
+      }
+    }, [isAuth, navigate]);
+  
+    return element;
+  };
   return (
     <Routes>
-    <Route path="/" element={<Home/>} />
+    <Route path="/" element={
+    <RequireAuth element={ <Home/>}/>
+    } />
     <Route path="/auth/*" element={<Auth/> } />
     <Route path="/chat" element={<Chat/>} />
     </Routes> 
