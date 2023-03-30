@@ -25,11 +25,9 @@ const Routers = () => {
   };
   return (
     <Routes>
-    <Route path="/" element={
-    <RequireAuth element={ <Home/>}/>
-    } />
-    <Route path="/auth/*" element={<Auth/> } />
-    <Route path="/chat" element={<Chat/>} />
+    <Route path="/" element={<RequireAuth element={ <Home/>}/>} />
+    <Route path="/auth/*" element={<RequireAuth element={ <Auth/>}/>} />
+    <Route path="/chat" element={<RequireAuth element={ <Chat/>}/>} />
     </Routes> 
   )
 }
