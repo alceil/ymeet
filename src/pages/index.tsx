@@ -19,7 +19,7 @@ const Routers = () => {
       if (!isAuth) {
         navigate("/auth/signIn")
       }
-    }, [isAuth, navigate]);
+    }, [isAuth]);
   
     return element;
   };

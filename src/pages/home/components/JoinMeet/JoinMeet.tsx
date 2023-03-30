@@ -1,6 +1,7 @@
 import React from 'react'
 import style from './JoinMeet.module.css'
-import {MdKeyboard,MdVideoCall} from 'react-icons/md'
+import {MdKeyboard} from 'react-icons/md'
+import NewMeet from '../NewMeet/NewMeet'
 const JoinMeet = () => {
   return (
       <div className={style.SignUpBox}>
@@ -14,15 +15,8 @@ const JoinMeet = () => {
 </div>
 
 <button className={style.click}>Join Meeting</button>
-
-<button className={style.outline_btn}>
-  <MdVideoCall size={25}/> 
-  <span className={style.btn_text}>
-   Create new Link
-    
-  </span>
-  
-  </button>
+<span style={{color:'#0000008A',margin:'auto'}}>or</span>
+<NewMeet/>
       </div>
   )
 }

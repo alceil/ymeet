@@ -25,6 +25,7 @@ const SignIn: React.FC = () => {
   const setUID = useLocalStorage("UID", "")[1];
 
   const handleLogin = async () => {
+    console.log("login called")
     if (!emailRegex.test(email.text)) {
       return setEmail({ ...email, error: "Field is invalid" });
     } else if (!firstStepOver) {
@@ -65,16 +66,28 @@ const SignIn: React.FC = () => {
   className={style.emailInput} 
   name="text" 
   placeholder="      Email" 
-  type="email"/>
+  type="email"
+  value={email.text}
+  onChange={(e) => {
+    setEmail({ error: "", text: e.target.value });
+  }}
+  />
 </div>
+<div style={{color:'red'}}>{email.error}</div>
 <div style={{position: 'relative', display: 'inline-block'}}>
 <MdOutlineLockOpen style={{position: 'absolute', left: 5, top: 14, width: 20, height: 20,color:'grey'}}/>
 <input 
   className={style.emailInput} 
   name="text" 
   placeholder="      Password" 
-  type="password"/>
+  type="password"
+  value={password.text}
+  onChange={(e) => {
+    setPassword({ error: "", text: e.target.value });
+  }}
+  />
 </div>
+<div style={{color:'red'}}>{password.error}</div>
 <button 
 className={style.click}
 disabled={loading}
@@ -84,8 +97,7 @@ onClick={handleLogin}
   </button>
 
 <Link to='/auth/signUp'  style={{color: 'inherit', textDecoration: 'inherit'}}>
-<p>Create new account</p>
-
+<p >Create new account</p>
 </Link>
 
       </div>

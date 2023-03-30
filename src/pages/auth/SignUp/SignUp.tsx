@@ -24,6 +24,7 @@ const SignUp = () => {
   const [password, setPassword] = React.useState(INITIAL_STATE);
   const [loading, setLoading] = React.useState(false);
   const handleSignUp = async () => {
+    console.log("signup called")
     const inValid = (
       [
         [name.text, setName, /(\w+)/],
@@ -43,6 +44,7 @@ const SignUp = () => {
 
     await signUp(name.text, email.text, password.text)
       .then((userDetails) => {
+        console.log(userDetails)
         dispatch(updateAuth({ isAuth: true, ...userDetails }));
         enqueueSnackbar("Welcome " + userDetails.displayName);
         setUID(JSON.stringify(userDetails));
@@ -54,7 +56,6 @@ const SignUp = () => {
         });
       });
     };
-
     React.useEffect(() => {
       if (isAuth) {
         navigate('/')
@@ -71,24 +72,42 @@ const SignUp = () => {
   className={style.emailInput} 
   name="text" 
   placeholder="      Display Name" 
-  type="email"/>
+  type="email"
+  value={name.text}
+  onChange={(e) => {
+    setName({ error: "", text: e.target.value });
+  }}
+  />
 </div>
+<div style={{color:'red'}}>{name.error}</div>
 <div style={{position: 'relative', display: 'inline-block'}}>
 <HiOutlineMail style={{position: 'absolute', left: 5, top: 14, width: 20, height: 20,color:'grey'}}/>
 <input 
   className={style.emailInput} 
   name="text" 
   placeholder="      Email" 
-  type="email"/>
+  type="email"
+  value={email.text}
+  onChange={(e) => {
+    setEmail({ error: "", text: e.target.value });
+  }}
+  />
 </div>
+<div style={{color:'red'}}>{email.error}</div>
 <div style={{position: 'relative', display: 'inline-block'}}>
 <MdOutlineLockOpen style={{position: 'absolute', left: 5, top: 14, width: 20, height: 20,color:'grey'}}/>
 <input 
   className={style.emailInput} 
   name="text" 
   placeholder="      Password" 
-  type="password"/>
+  type="password"
+  value={password.text}
+  onChange={(e) => {
+    setPassword({ error: "", text: e.target.value });
+  }}
+  />
 </div>
+<div style={{color:'red'}}>{password.error}</div>
 <button 
 className={style.click}
 disabled={loading}
@@ -97,7 +116,7 @@ onClick={handleSignUp}
   Register Now
   </button>
 <Link to='/auth/signIn'  style={{color: 'inherit', textDecoration: 'inherit'}}>
-<p>Already have an account?Sign in</p>
+<p >Already have an account?Sign in</p>
 
 </Link>
       </div>
