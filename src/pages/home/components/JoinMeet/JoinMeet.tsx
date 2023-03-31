@@ -1,8 +1,14 @@
 import React from 'react'
 import style from './JoinMeet.module.css'
-import {MdKeyboard} from 'react-icons/md'
+import {MdKeyboard,MdVideoCall} from 'react-icons/md'
 import NewMeet from '../NewMeet/NewMeet'
+import Modal from '../../../../components/Modal/Modal'
 const JoinMeet = () => {
+  const [openDialog, setOpenDialog] = React.useState(false);
+  const handleModalClose = () => {
+    console.log("called modal close")
+      setOpenDialog(!openDialog)
+    };
   return (
       <div className={style.SignUpBox}>
 <div style={{position: 'relative', display: 'inline-block'}}>
@@ -16,7 +22,20 @@ const JoinMeet = () => {
 
 <button className={style.click}>Join Meeting</button>
 <span style={{color:'#0000008A',margin:'auto'}}>or</span>
-<NewMeet/>
+<button 
+    className={style.outline_btn}
+    onClick={() => setOpenDialog(!openDialog)}
+    >
+  <MdVideoCall size={25}/> 
+  <span className={style.btn_text}>
+   Create new Link
+    
+  </span>
+
+  </button>
+{/* <NewMeet/> */}
+
+<Modal isOpen={openDialog} onClose={handleModalClose}/>
       </div>
   )
 }

@@ -2,7 +2,14 @@ import React from 'react'
 import Header from '../../components/Header/Header'
 import JoinMeet from './components/JoinMeet/JoinMeet'
 import {BsChatLeftText} from 'react-icons/bs'
+import Modal from '../../components/Modal/Modal'
+
 const Home = () => {
+  const [openDialog, setOpenDialog] = React.useState(true);
+const handleModalClose = () => {
+  console.log("called modal close")
+    setOpenDialog(!openDialog)
+  };
   return (
 <>
 <Header/>
@@ -43,6 +50,7 @@ backgroundColor:'#4527a0'
 }}>
 <BsChatLeftText size={20}/>
 </button>
+{/* <Modal isOpen={openDialog} onClose={handleModalClose}/> */}
 
 </div>
 

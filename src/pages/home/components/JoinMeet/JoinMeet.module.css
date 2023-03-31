@@ -61,3 +61,24 @@ font-weight: 500;
     transition: background 0s;
   }
 
+  .outline_btn {
+    display: flex;
+    background-color: #ffff;
+    color: #4527a0;
+    cursor: pointer;
+    margin-top: 10px;
+    border: 1px solid #4527a0;
+    font-size: 1rem;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: .25rem;
+    text-align: right;
+  }
+
+  .btn_text{
+    margin-left: 10px;
+    font-size: 15px;
+  }
+    
