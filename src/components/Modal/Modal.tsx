@@ -12,17 +12,12 @@ type ModalProps = {
 const Modal:React.FC<ModalProps> = ({isOpen,onClose}) => {
   return (
    isOpen?( <>
-    <div className='modal-bg' >
+   <div>
+    <div className='modal-bg' onClick={onClose}></div>
         <div className='modal'>
-        <div className='modal-close' 
-      
-      onClick={onClose}
-      >
-    <BiX/>
-      </div>
       <div className='modal-body'>
       <div className='dialogueContainter'>
-    <h3 style={{color:'#000000DE',position:'relative',right:'15rem'}}>Create New meeting </h3>
+    <h3 style={{color:'#000000DE',position:'relative',right:'7rem'}}>Create New meeting </h3>
     <input 
       className='meetInput' 
       name="text" 
@@ -33,6 +28,7 @@ const Modal:React.FC<ModalProps> = ({isOpen,onClose}) => {
     //     setEmail({ error: "", text: e.target.value });
     //   }}
       />
+    
       <input 
       className='meetInput' 
       name="text" 
@@ -43,6 +39,7 @@ const Modal:React.FC<ModalProps> = ({isOpen,onClose}) => {
     //     setEmail({ error: "", text: e.target.value });
     //   }}
       />
+      <button className='click'>Start New Meeting</button>
     </div>
       </div>
     </div>

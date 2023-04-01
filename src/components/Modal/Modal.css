@@ -30,6 +30,7 @@
 .dialogueContainter{
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 
   .meetInput {
@@ -54,4 +55,21 @@
   
   .meetInput:hover:not(:focus) {
     outline: 1px solid black;
+  }
+
+  .click {
+    transition: background .8s ease-out;
+    color:white;
+    padding: 10px;
+    margin:10px;
+    width: 88%;
+    border: none;
+    border-radius: 4px;
+    background: #4527a0 radial-gradient(circle, transparent 1%, #7A5FFF 1%) center/15000%;
+  }
+  
+  .click:active {
+    background-color: #c1b4ff;
+    background-size: 100%;
+    transition: background 0s;
   }
