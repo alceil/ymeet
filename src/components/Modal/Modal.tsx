@@ -1,12 +1,17 @@
 import React, { useState } from 'react'
 import './Modal.css'
 import { MuiChipsInput } from 'mui-chips-input'
+import { useAppSelector } from '../../core/hooks/redux'
+import { useLocalStorage } from '../../core/hooks/common'
+import { useNavigate } from 'react-router-dom'
+import { useSnackbar } from 'notistack'
+import { newMeet } from '../../utils/meeting.fetch'
 
 type ModalProps = {
     isOpen:boolean,
     onClose:()=> unknown,
 }
-
+type MeetType = "public" | "private";
 
 
 const Modal:React.FC<ModalProps> = ({isOpen,onClose}) => {
@@ -15,8 +20,7 @@ const Modal:React.FC<ModalProps> = ({isOpen,onClose}) => {
   const [meetingTime, setMeetingTime] = React.useState({ text: "", error: "" });
   const [meetingInvitees, setMeetingInvitees] = React.useState<string[]>([]);
   const [loading, setLoading] = React.useState(false);
-  const [openDialog, setOpenDialog] = React.useState(false);
-  const history = useHistory();
+  const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
   const { UID } = useAppSelector(({ authReducer }) => authReducer);
   const [recentCalls, setRecentCalls] = useLocalStorage(
@@ -38,7 +42,7 @@ const Modal:React.FC<ModalProps> = ({isOpen,onClose}) => {
           variant: "success",
         });
         meetID && setRecentCalls([meetID, ...recentCalls.slice(0, 3)]);
-        history.push(`/${meetID}`);
+        navigate(`/${meetID}`);
       })
       .catch((error) => {
         enqueueSnackbar(error || "Something went wrong", {
@@ -60,26 +64,22 @@ const Modal:React.FC<ModalProps> = ({isOpen,onClose}) => {
       name="text" 
       placeholder="Meeting Name" 
       type="text"
-    //   value={email.text}
-    //   onChange={(e) => {
-    //     setEmail({ error: "", text: e.target.value });
-    //   }}
+      value={meetingName.text}
+      onChange={(event) =>
+        setMeetingName({ text: event.target.value, error: "" })
+      }
       />
         <input 
         className='meetInput' 
         name="text" 
         type="datetime-local" 
-        
+        onChange={(event) => {
+          setMeetingTime({
+            text: Date.parse(event.target.value).toString(),
+            error: "",
+          });
+        }}
         />
-
-
-{/* <ChipInput
-            fullWidth
-            variant="outlined"
-            onChange={setMeetingInvitees}
-            label="Invite users by email"
-            placeholder="Type and press enter to add emails"
-          /> */}
  <MuiChipsInput 
  fullWidth
  value={meetingInvitees} 
@@ -87,16 +87,6 @@ const Modal:React.FC<ModalProps> = ({isOpen,onClose}) => {
  label="Invite users by email"
  placeholder="Type and press enter to add emails"
  />
-      {/* <input 
-      className='meetInput' 
-      name="text" 
-      placeholder="Invite users by email" 
-      type="text"
-    //   value={email.text}
-    //   onChange={(e) => {
-    //     setEmail({ error: "", text: e.target.value });
-    //   }}
-      /> */}
 
       
 <label style={{position:'relative',right:'8.6rem',marginTop:'5px'}}>
@@ -105,7 +95,7 @@ const Modal:React.FC<ModalProps> = ({isOpen,onClose}) => {
               type="radio"
               value="public"
               onChange={(e) => {
-                setMeetingType(e.target.value);
+                setMeetingType(e.target.value as MeetType);
                   }}
             />
             Anyone can join
@@ -116,12 +106,16 @@ const Modal:React.FC<ModalProps> = ({isOpen,onClose}) => {
               type="radio"
               value="private"
               onChange={(e) => {
-                setMeetingType(e.target.value);
+                setMeetingType(e.target.value as MeetType);
                   }}
             />
     Restricted to invited users
           </label >
-      <button className='click'>Start New Meeting</button>
+      <button 
+        disabled={loading}
+      className='click'
+      onClick={handleSubmit}
+      >Start New Meeting</button>
     </div>
       </div>
     </div>
