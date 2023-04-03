@@ -4,10 +4,9 @@ import LeftBar from './components/LeftBar';
 import SidePanel from './components/SidePanel';
 import Video from './components/Video';
 import style from './Meet.module.css';
+import { useVideoConf } from '../hooks/useVideoConf';
 const Meet = () => {
   const [open,setOpen] = useState(true);
-  const [open, setOpen] = React.useState(false);
-  const classes = useStyles({ open });
 
   const { myStream, peerStream, destroyConnection, raiseHand } = useVideoConf();
   const [gridSize, setGridSize] = React.useState(1);
@@ -24,7 +23,7 @@ const Meet = () => {
   return (
     <div className={style.meet_container}>
       <div style={{display:'flex'}}>
-      <Video open={open}/>
+      <Video open={open} stream={myStream.current} displayName={"You"} />
       </div>
 <SidePanel  open={open} setOpen={setOpen}/>
 <Controller/>
