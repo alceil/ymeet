@@ -1,5 +1,5 @@
 import React from "react";
-import { AudioContext } from "core/provider/AudioProvider";
+import { AudioContext } from "../provider/AudioProvider";
 
 export const useAudio = (): {
   playAudio: () => undefined;
