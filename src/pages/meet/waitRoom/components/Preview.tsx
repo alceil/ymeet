@@ -25,7 +25,7 @@ const Preview = () => {
     }
   }, [isAudio]);
   return (
-    <div className={style.video_box}>
+    <div>
               <video muted className={style.video_box} ref={videoController} autoPlay />
       <div className={style.vc_options}>
        <IoMdMic size={20} style={{color:'rgba(0, 0, 0, 0.54)'}}/> 

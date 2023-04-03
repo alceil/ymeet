@@ -25,7 +25,7 @@ const WaitRoom: React.FC<WaitingRoomProps> = ({ joinMeetHandler }) => {
   const { UID } = useAppSelector(({ authReducer }) => authReducer);
   const [loading, setLoading] = React.useState(true);
   const [meetOk, setMeetOk] = React.useState<boolean | null>(null);
-  const history = useHistory();
+
 
   useTitle("Join Meet");
 
@@ -59,7 +59,7 @@ const WaitRoom: React.FC<WaitingRoomProps> = ({ joinMeetHandler }) => {
 <Header/>
 <div className={style.waitroom_middle}>
 <Preview/>
-<ReadyComponent/>
+<ReadyComponent  joinMeetHandler={joinMeetHandler}/>
 </div>
 </>
   )

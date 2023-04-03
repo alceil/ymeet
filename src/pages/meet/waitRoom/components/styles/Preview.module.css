@@ -8,8 +8,8 @@
 
 .vc_options{
     position: relative;
-    top:18rem;
     left: 15rem;
+    bottom: 4rem;
     display: flex;
     background-color: #dddbdba7;
     align-items: center;
