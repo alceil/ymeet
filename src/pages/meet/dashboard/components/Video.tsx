@@ -1,9 +1,31 @@
 import React from 'react'
 import style from './styles/Video.module.css'
-const Video: React.FC<{open:boolean}> = ({open}) => {
+type VideoProps = React.VideoHTMLAttributes<HTMLVideoElement> & {
+  open:Boolean,
+  stream: MediaStream | undefined;
+  displayName?: string;
+};
+const Video: React.FC<VideoProps> = ({
+  open,
+  stream,
+  displayName = "You",
+  ...props
+}) => {
+  const videoController = React.useRef<HTMLVideoElement>(null);
+  React.useEffect(() => {
+    if (videoController.current && stream) {
+      videoController.current.srcObject = stream;
+    }
+  }, [stream]);
   return (
-    <div className= {`${style.video_box} ${open?`${style.transition}`:` `}`}>
-        <h5 className={style.displayName}>You</h5>
+    <div >
+            <video
+className= {`${style.video_box} ${open?`${style.transition}`:` `}`}
+        ref={videoController}
+        autoPlay
+        {...props}
+      />
+        <h5 className={style.displayName}>{displayName}</h5>
     </div>
   )
 }

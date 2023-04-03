@@ -1,19 +1,19 @@
 import React from "react";
 import Peer from "peerjs";
-import { useTitle } from "core/hooks/common";
+import { useTitle } from "../../../core/hooks/common";
 import { useSnackbar } from "notistack";
-import { useAppDispatch, useAppSelector } from "core/hooks/redux";
-import { iceServers } from "core/config";
-import { useSocket } from "core/hooks/useSocket";
-import { useAudio } from "core/hooks/useAudio";
-import { useUpdate } from "core/hooks/useUpdate";
-import { useDocVisible } from "core/hooks/useDocVisible";
+import { iceServers } from "../../../core/config";
+import { useSocket } from "../../../core/hooks/useSocket";
+import { useAudio } from "../../../core/hooks/useAudio";
+import { useUpdate } from "../../../core/hooks/useUpdate";
+import { useDocVisible } from "../../../core/hooks/useDocVisible";
 import {
   removeParticipant,
   updateParticipant,
-  updatePoll,
-} from "core/reducers/meeting";
-import { toggleHand } from "core/reducers/media";
+  // updatePoll,
+} from "../../../core/reducers/meeting";
+import { toggleHand } from "../../../core/reducers/media";
+import { useAppDispatch, useAppSelector } from "../../../core/hooks/redux";
 
 const logger =
   process.env.NODE_ENV === "development"
@@ -29,7 +29,7 @@ export const useVideoConf = () => {
   const { enqueueSnackbar } = useSnackbar();
   const { playAudio } = useAudio();
   const changeTab = useDocVisible();
-  const peers = React.useRef<Record<string, Peer.MediaConnection>>();
+  const peers = React.useRef<Record<string,  Peer.MediaConnection>>();
   const myStream = React.useRef<MediaStream>();
   const peerStream =
     React.useRef<Map<string, { displayName: string; stream: MediaStream }>>();
@@ -102,9 +102,9 @@ export const useVideoConf = () => {
         enqueueSnackbar(displayName + " changing tabs");
       }
     });
-    socketClient.on("onNewPoll", (pollData) => {
-      dispatch(updatePoll(pollData));
-    });
+    // socketClient.on("onNewPoll", (pollData) => {
+    //   dispatch(updatePoll(pollData));
+    // });
     socketClient.on("forceQuit", (UID) => {
       logger("forceQuit", UID, authReducer.UID);
       if (UID === peerJs.current?.id) {
