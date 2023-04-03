@@ -6,7 +6,7 @@ import { useConnection } from '../core/hooks/useConnection';
 import Auth from './auth';
 import Chat from './chat/Chat';
 import Home from './home/Home';
-import Meet from './meet/dashboard/Meet';
+import Meet from './meet';
 const Routers = () => {
 
   // <Route path="/" element={isAuth?<Home/>: <Navigate to="/auth/signIn" />} />
