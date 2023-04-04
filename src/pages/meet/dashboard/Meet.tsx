@@ -26,7 +26,10 @@ const Meet = () => {
       <Video open={open} stream={myStream.current} displayName={"You"} />
       </div>
 <SidePanel  open={open} setOpen={setOpen}/>
-<Controller/>
+<Controller
+        endCallHandler={destroyConnection}
+        raiseHandHandler={raiseHand}
+/>
 <LeftBar/>
     </div>
   )

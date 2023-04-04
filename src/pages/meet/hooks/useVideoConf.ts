@@ -87,7 +87,7 @@ export const useVideoConf = () => {
     });
     socketClient.on("onRaiseHand", ({ displayName, UID }) => {
       logger("user raised hand", displayName);
-      if (UID != authReducer.UID) {
+      if (UID !== authReducer.UID) {
         logger(UID, authReducer.UID);
         playAudio?.();
         enqueueSnackbar(displayName + " raised hand");

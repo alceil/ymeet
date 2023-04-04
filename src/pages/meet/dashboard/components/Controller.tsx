@@ -9,7 +9,16 @@ import {
     MdBrightness4,
     MdOutlinePanTool
 } from 'react-icons/md'
-const Controller = () => {
+
+type ControllerProps = {
+  endCallHandler: () => unknown;
+  raiseHandHandler: () => unknown;
+};
+const Controller:React.FC<ControllerProps> = (
+  endCallHandler,
+  raiseHandHandler,
+
+) => {
   return (
     <div className={style.controller_container}>
         <IoMdMic size={24}/>
