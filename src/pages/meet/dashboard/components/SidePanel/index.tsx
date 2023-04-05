@@ -11,13 +11,40 @@ import {
 } from 'react-icons/md'
 
 import { BsChatLeftText } from "react-icons/bs";
-import MeetInfo from './Info';
-import Participants from './Participants';
-import Chat from './ChatBox';
-import Polls from './Polls';
-const SidePanel:React.FC< {open: boolean;setOpen: React.Dispatch<React.SetStateAction<boolean>>;}> =
+import LinearProgress from '@mui/material/LinearProgress';
+import loadable from '@loadable/component';
+import { useAppSelector } from '../../../../../core/hooks/redux';
+
+
+const Chat = loadable(() => import("./ChatBox"), {
+  fallback: <LinearProgress />,
+});
+const Participants = loadable(() => import("./Participants"), {
+  fallback: <LinearProgress />,
+});
+const MeetInfo = loadable(() => import("./Info"), {
+  fallback: <LinearProgress />,
+});
+const Polls = loadable(() => import("./Polls"), {
+  fallback: <LinearProgress />,
+});
+// const LockMeet = loadable(() => import("./LockMeet"), {
+//   fallback: <LinearProgress />,
+// });
+
+interface Props {
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const SidePanel:React.FC<Props> =
  ({ open, setOpen }) => {
     const [index, setIndex] = useState(1);
+
+    const { participants, meetDetails, chat } = useAppSelector((state) => ({
+      ...state.meetReducer,
+      ...state.chatReducer,
+    }));
     
   const handleIconPress = (key: number) => () => {
     if (!open) {
@@ -43,6 +70,8 @@ const SidePanel:React.FC< {open: boolean;setOpen: React.Dispatch<React.SetStateA
               case 1:
                 return (
                   <Participants
+                  isHost={meetDetails.isHost}
+                  participants={participants}
                   />
                 );
               case 2:
