@@ -66,7 +66,8 @@ const Participants:React.FC<Props> = ({ isHost, participants }) => {
         ([UID, { displayName, isAvail }], key) =>
           isAvail ? (
 
-            <div style={{display:'flex',alignItems:'center'}}>
+            <div style={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+                <div style={{display:'flex',alignItems:'center'}}>
             <div style={
                 {
                 display:'flex',
@@ -82,6 +83,7 @@ const Participants:React.FC<Props> = ({ isHost, participants }) => {
    {displayName?.[0].toUpperCase()}
             </div>
             <h3 style={{marginLeft:'10px',color:'#0000008A'}}>{displayName}</h3>
+            </div>
             {isHost && UID && (
                 <Tooltip title={"Remove " + displayName}>
                   <IconButton
