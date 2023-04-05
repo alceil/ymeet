@@ -14,6 +14,7 @@ import { BsChatLeftText } from "react-icons/bs";
 import LinearProgress from '@mui/material/LinearProgress';
 import loadable from '@loadable/component';
 import { useAppSelector } from '../../../../../core/hooks/redux';
+import Badge from '@mui/material/Badge';
 
 
 const Chat = loadable(() => import("./ChatBox"), {
@@ -45,6 +46,7 @@ const SidePanel:React.FC<Props> =
       ...state.meetReducer,
       ...state.chatReducer,
     }));
+    console.log(meetDetails)
     
   const handleIconPress = (key: number) => () => {
     if (!open) {
@@ -75,9 +77,9 @@ const SidePanel:React.FC<Props> =
                   />
                 );
               case 2:
-                return <Chat />;
+                return <Chat  />;
               case 3:
-                return <Polls  />;
+                return <Polls  isHost={meetDetails.isHost} />;
               default:
                 return null;
             }
@@ -86,7 +88,10 @@ const SidePanel:React.FC<Props> =
 <div className={style.sidepanelicon_container}>
 <MdInfoOutline size={24} onClick={handleIconPress(0)}/>
 <MdOutlinePeopleOutline size={24} onClick={handleIconPress(1)}/>
+<Badge color="primary" variant="dot" invisible={!chat.length}>
 <BsChatLeftText size={24} onClick={ handleIconPress(2)}/>
+
+            </Badge>
 <MdOutlineAssessment size={24} onClick={ handleIconPress(3)}/>
 <MdLockOpen size={24} />
     </div>
