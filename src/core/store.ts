@@ -2,13 +2,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "./reducers/auth";
 import mediaReducer from "./reducers/media";
 import meetReducer from "./reducers/meeting";
+import chatReducer from "./reducers/chat";
 const store = configureStore({
   reducer: {
     mediaReducer,
     authReducer,
     // themeReducer,
     meetReducer,
-    // chatReducer,
+    chatReducer,
   },
   devTools: true,
 });
