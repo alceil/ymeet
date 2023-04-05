@@ -10,7 +10,7 @@ import { useDocVisible } from "../../../core/hooks/useDocVisible";
 import {
   removeParticipant,
   updateParticipant,
-  // updatePoll,
+  updatePoll,
 } from "../../../core/reducers/meeting";
 import { toggleHand } from "../../../core/reducers/media";
 import { useAppDispatch, useAppSelector } from "../../../core/hooks/redux";
@@ -102,9 +102,9 @@ export const useVideoConf = () => {
         enqueueSnackbar(displayName + " changing tabs");
       }
     });
-    // socketClient.on("onNewPoll", (pollData) => {
-    //   dispatch(updatePoll(pollData));
-    // });
+    socketClient.on("onNewPoll", (pollData) => {
+      dispatch(updatePoll(pollData));
+    });
     socketClient.on("forceQuit", (UID) => {
       logger("forceQuit", UID, authReducer.UID);
       if (UID === peerJs.current?.id) {

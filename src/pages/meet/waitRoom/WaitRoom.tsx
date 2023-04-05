@@ -10,7 +10,7 @@ import { useSnackbar } from 'notistack'
 import { useParams } from 'react-router-dom'
 import { useTitle } from '../../../core/hooks/common'
 
-type Params = { meetID: string };
+type Params = { meetId: string };
 
 type WaitingRoomProps = {
   joinMeetHandler: () => unknown;
@@ -20,7 +20,7 @@ type WaitingRoomProps = {
 const WaitRoom: React.FC<WaitingRoomProps> = ({ joinMeetHandler }) => {
 
   const dispatch = useAppDispatch();
-  const { meetID } = useParams<Params>();
+  const { meetId } = useParams<Params>();
   const { enqueueSnackbar } = useSnackbar();
   const { UID } = useAppSelector(({ authReducer }) => authReducer);
   const [loading, setLoading] = React.useState(true);
@@ -30,7 +30,7 @@ const WaitRoom: React.FC<WaitingRoomProps> = ({ joinMeetHandler }) => {
   useTitle("Join Meet");
 
   React.useEffect(() => {
-    getMeet(meetID!, UID)
+    getMeet(meetId!, UID)
       .then((details) => {
         const { _id, hostID, title, type } = details;
         dispatch(
@@ -38,7 +38,7 @@ const WaitRoom: React.FC<WaitingRoomProps> = ({ joinMeetHandler }) => {
             MID: _id || "",
             hostID,
             isHost: hostID === UID,
-            meetID: meetID!,
+            meetID: meetId!,
             title,
             type,
           })
@@ -53,7 +53,7 @@ const WaitRoom: React.FC<WaitingRoomProps> = ({ joinMeetHandler }) => {
           variant: "error",
         });
       });
-  }, [meetID, UID]);
+  }, [meetId, UID]);
   return (
 <>
 <Header/>
