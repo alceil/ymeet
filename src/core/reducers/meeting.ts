@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { PollType } from "../../pages/meet/dashboard/components/SidePanel/Poll/PollType";
 // import { PollType } from "pages/meet/dashboard/components/SidePanel/Poll/PollType";
 
 export type MeetParticipants = {
@@ -18,7 +19,7 @@ export const meetStore = createSlice({
       isHost: false,
     },
     participants: {} as Record<string, MeetParticipants>,
-    // poll: {} as PollType,
+    poll: {} as PollType,
   },
   reducers: {
     updateMeetDetails: (
@@ -47,9 +48,9 @@ export const meetStore = createSlice({
     ) => {
       state.participants[action.payload.UID].isAvail = false;
     },
-    // updatePoll: (state, action: PayloadAction<PollType>) => {
-    //   state.poll = action.payload;
-    // },
+    updatePoll: (state, action: PayloadAction<PollType>) => {
+      state.poll = action.payload;
+    },
   },
 });
 
@@ -57,7 +58,7 @@ export const {
   removeParticipant,
   updateMeetDetails,
   updateParticipant,
-//   updatePoll,
+  updatePoll,
 } = meetStore.actions;
 
 export default meetStore.reducer;

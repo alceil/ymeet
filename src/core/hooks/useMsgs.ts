@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector } from "./redux";
 import { addChat, clearChat, initialChat } from "../reducers/chat";
 
 export const useMsgs = (meetID?: string) => {
+  console.log(meetID)
   const socketClient = useSocket();
   const { enqueueSnackbar } = useSnackbar();
   const [loading, setLoading] = useState(false);
@@ -58,6 +59,7 @@ export const useMsgs = (meetID?: string) => {
   };
 
   const sendMessage = React.useCallback((message: string) => {
+    console.log(message)
     socketClient.emit("sendMessage", {
       displayName,
       message,

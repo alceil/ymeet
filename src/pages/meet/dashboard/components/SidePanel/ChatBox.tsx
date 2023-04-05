@@ -1,24 +1,54 @@
 import React from 'react'
+import { useAppSelector } from '../../../../../core/hooks/redux';
+import { useParams } from 'react-router-dom';
+import { useMsgs } from '../../../../../core/hooks/useMsgs';
+import { ChatTextInput } from '../../../../../components/Chat';
+import LinearProgress from '@mui/material/LinearProgress';
+import ChatMessage from '../../../../../components/Chat/ChatMessage';
+import { dateToTime } from '../../../../../utils/common';
 
 const ChatBox = () => {
+
+  const { userID, chat } = useAppSelector((state) => ({
+    userID: state.authReducer.UID,
+    chat: state.chatReducer.chat,
+  }));
+  const { meetId } = useParams<{ meetId: string }>();
+  const { sendMessage, loading } = useMsgs(meetId);
+  let prev = "";
+  console.log(meetId)
   return (
-<div style={{display:'flex',flexDirection:'column'}}>
-<div style={{display:'flex',justifyContent:'space-between',color:'#4527a0'}}>
-<h5>ilforam (You)</h5>
-<h5>10:19 pm</h5>
+
+    <div style={{position:'relative'}}>
+
+    <div  style={{display:'flex',flexDirection:'column',height:'60vh',overflowY:'auto'}}>
+    {loading ? (
+          <LinearProgress />
+        ) : (
+          chat?.map(({ message, displayName, createdAt, UID }, i) => (
+            <ChatMessage
+              key={i}
+              hideAvatar
+              hidePrimary={prev === (prev = UID)}
+              displayName={displayName}
+              isSelf={UID === userID}
+              message={message}
+              time={dateToTime(createdAt)}
+            />
+          ))
+        )}
+
+<div>
 </div>
-<div style={
-  {
-    display:'flex',
-    justifyContent:'space-between',
-    border:'1px solid rgb(221, 220, 220)',
-    padding:'14px',
-    borderRadius:'10px'
-    }
-    } >
-asdasdas
+
 </div>
+<ChatTextInput
+ onSend={sendMessage}
+ 
+ />
+
 </div>
+
   )
 }
 
