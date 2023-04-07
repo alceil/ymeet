@@ -29,9 +29,9 @@ const MeetInfo = loadable(() => import("./Info"), {
 const Polls = loadable(() => import("./Polls"), {
   fallback: <LinearProgress />,
 });
-// const LockMeet = loadable(() => import("./LockMeet"), {
-//   fallback: <LinearProgress />,
-// });
+const LockMeet = loadable(() => import("./LockMeet"), {
+  fallback: <LinearProgress />,
+});
 
 interface Props {
   open: boolean;
@@ -93,7 +93,9 @@ const SidePanel:React.FC<Props> =
 
             </Badge>
 <MdOutlineAssessment size={24} onClick={ handleIconPress(3)}/>
-<MdLockOpen size={24} />
+{(meetDetails.isHost || process.env.NODE_ENV === "development") && (
+          <LockMeet />
+        )}
     </div>
     </div>
 
